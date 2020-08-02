@@ -1,0 +1,1 @@
+# every-chinese-character
