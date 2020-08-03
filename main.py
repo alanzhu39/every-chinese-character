@@ -2,18 +2,19 @@ import tweepy
 import time
 import characters.pinyin as pinyin
 import json
+from os import environ
 
 cfile = open('characters/characters.txt', 'r', encoding='utf-8')
 clist = json.loads(cfile.read())
-credentials = open('credentials.txt', 'r')
+# credentials = open('credentials.txt', 'r')
 
 interval = 60 * 60 * 6
 interval = 10
 
-consumer_key = credentials.readline().strip('\n')
-consumer_secret = credentials.readline().strip('\n')
-access_key = credentials.readline().strip('\n')
-access_secret = credentials.readline().strip('\n')
+consumer_key = environ['consumer_key']
+consumer_secret = environ['consumer_secret']
+access_key = environ['access_key']
+access_secret = environ['access_secret']
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_key, access_secret)
@@ -31,4 +32,4 @@ for i in range(len(clist)):
 """
 
 cfile.close()
-credentials.close()
+# credentials.close()
