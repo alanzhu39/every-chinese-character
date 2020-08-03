@@ -9,7 +9,7 @@ clist = json.loads(cfile.read())
 # credentials = open('credentials.txt', 'r')
 
 interval = 60 * 60 * 6
-interval = 10
+# interval = 10
 
 consumer_key = environ['consumer_key']
 consumer_secret = environ['consumer_secret']
@@ -20,7 +20,7 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_key, access_secret)
 api = tweepy.API(auth)
 
-for i in range(5):
+for i in range(len(clist)):
     print('getting character {}'.format(i + 1))
     c = clist[i]
     message = c + " " + pinyin.getPinyin(c)
