@@ -8,7 +8,7 @@ cfile = open('characters/characters.txt', 'r', encoding='utf-8')
 clist = json.loads(cfile.read())
 # credentials = open('credentials.txt', 'r')
 
-interval = 60 * 60 * 6
+interval = 60 * 60 * 2
 # interval = 10
 
 consumer_key = environ['consumer_key']
