@@ -20,16 +20,12 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_key, access_secret)
 api = tweepy.API(auth)
 
-api.update_status(clist[0])
-
-"""
-for i in range(len(clist)):
+for i in range(5):
     print('getting character {}'.format(i + 1))
     c = clist[i]
     message = c + " " + pinyin.getPinyin(c)
     api.update_status(message)
     time.sleep(interval)
-"""
 
 cfile.close()
 # credentials.close()
