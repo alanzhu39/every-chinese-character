@@ -24,7 +24,7 @@ api = tweepy.API(auth)
 while True:
     curr.seek(0, 0)
     i = int(curr.read().strip())
-    if i >= 5:
+    if i >= len(clist):
         break
     print('getting character {}'.format(i + 1))
     c = clist[i]
@@ -33,7 +33,7 @@ while True:
     i += 1
     curr.seek(0, 0)
     curr.write(str(i))
-    time.sleep(10)
+    time.sleep(interval)
 
 cfile.close()
 curr.close()
