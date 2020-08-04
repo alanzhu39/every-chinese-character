@@ -22,17 +22,13 @@ auth.set_access_token(access_key, access_secret)
 api = tweepy.API(auth)
 
 while True:
-    curr.seek(0, 0)
-    i = int(curr.read().strip())
+    i = clist.index(api.user_timeline('every_zi')[0].split()[0]) + 1
     if i >= len(clist):
         break
     print('getting character {}'.format(i + 1))
     c = clist[i]
     message = c + " " + pinyin.getPinyin(c)
     api.update_status(message)
-    i += 1
-    curr.seek(0, 0)
-    curr.write(str(i))
     time.sleep(interval)
 
 cfile.close()
