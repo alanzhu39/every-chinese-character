@@ -32,7 +32,7 @@ while True:
     api.update_status(message)
     i += 1
     curr.seek(0, 0)
-    curr.write(i)
+    curr.write(str(i))
     time.sleep(10)
 
 cfile.close()
