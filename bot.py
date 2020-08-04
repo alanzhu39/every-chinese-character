@@ -6,7 +6,7 @@ from os import environ
 
 cfile = open('characters/characters.txt', 'r', encoding='utf-8')
 clist = json.loads(cfile.read())
-curr = open('current.txt', 'r+')
+# curr = open('current.txt', 'r+')
 # credentials = open('credentials.txt', 'r')
 
 interval = 60 * 60 * 2
@@ -32,5 +32,5 @@ while True:
     time.sleep(interval)
 
 cfile.close()
-curr.close()
+# curr.close()
 # credentials.close()
