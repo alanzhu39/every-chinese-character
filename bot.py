@@ -6,6 +6,7 @@ from os import environ
 
 cfile = open('characters/characters.txt', 'r', encoding='utf-8')
 clist = json.loads(cfile.read())
+curr = open('current.txt', 'r+')
 # credentials = open('credentials.txt', 'r')
 
 interval = 60 * 60 * 2
@@ -20,12 +21,20 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_key, access_secret)
 api = tweepy.API(auth)
 
-for i in range(len(clist)):
+while True:
+    curr.seek(0, 0)
+    i = int(curr.read().strip())
+    if i >= 5:
+        break
     print('getting character {}'.format(i + 1))
     c = clist[i]
     message = c + " " + pinyin.getPinyin(c)
     api.update_status(message)
-    time.sleep(interval)
+    i += 1
+    curr.seek(0, 0)
+    curr.write(i)
+    time.sleep(10)
 
 cfile.close()
+curr.close()
 # credentials.close()
