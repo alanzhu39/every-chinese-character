@@ -22,7 +22,7 @@ auth.set_access_token(access_key, access_secret)
 api = tweepy.API(auth)
 
 while True:
-    i = clist.index(api.user_timeline('every_zi')[0].split()[0]) + 1
+    i = clist.index(api.user_timeline('every_zi')[0].text.split()[0]) + 1
     if i >= len(clist):
         break
     print('getting character {}'.format(i + 1))
