@@ -30,7 +30,7 @@ while True:
     message = c + " " + pinyin.getPinyin(c)
     api.update_status(message)
     time.sleep(interval)
-
+api.update_status("Job done!")
 cfile.close()
 # curr.close()
 # credentials.close()
